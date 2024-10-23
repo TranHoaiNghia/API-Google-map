@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Maps Demo</title>
+  <style>
+    #map {
+      height: 500px; /* Đặt chiều cao của bản đồ */
+      width: 100%;   /* Đặt chiều rộng của bản đồ */
+    }
+  </style>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASmlnY4qItS8xhxTqv9QWxyPU5D_AFD3U"></script>
+  <script>
+    function initMap() {
+      // Tạo bản đồ ở vị trí mặc định (ví dụ: Thành phố Hồ Chí Minh)
+      var mapOptions = {
+        center: { lat: 10.8231, lng: 106.6297 }, // Vĩ độ và kinh độ
+        zoom: 12
+      };
+      
+      var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+      // Các địa điểm cần đánh dấu
+      var locations = [
+        {lat: 10.762622, lng: 106.660172, title: 'Đại học Bách Khoa TP.HCM'},
+        {lat: 10.823099, lng: 106.629662, title: 'Landmark 81'},
+        {lat: 10.776889, lng: 106.700806, title: 'Chợ Bến Thành'}
+      ];
+
+      // Thêm các marker vào bản đồ
+      locations.forEach(function(location) {
+        var marker = new google.maps.Marker({
+          position: location,
+          map: map,
+          title: location.title
+        });
+      });
+    }
+  </script>
+</head>
+<body onload="initMap()">
+  <h1>Google Maps với đánh dấu địa điểm</h1>
+  <div id="map"></div>
+</body>
+</html>

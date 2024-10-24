@@ -18,26 +18,26 @@ async function initMap() {
   });
 
   const locations = [
-    { lat: 10.951901949734763, lng: 106.822795904921, title: 'CÔNG VIÊN BIÊN HÙNG', address: 'Công viên BIÊN HÙNG, Biên Hòa, Đường 30/4' },
-    { lat: 10.946278948617428, lng: 106.81889694326861, title: 'NHÀ THỜ BIÊN HÒA', address: 'Nhà thờ Biên Hòa, Đường Phạm Văn Thuận' },
-    { lat: 10.946294034896788, lng: 106.81439250909067, title: 'CHỢ BIÊN HÒA', address: 'Chợ Biên Hòa, Đường Nguyễn Văn Trị' },
-    { lat: 10.957913982918043, lng: 106.86333609428446, title: 'TRƯỜNG THPT CHUYÊN LƯƠNG THẾ VINH', address: 'Trường THPT Chuyên Lương Thế Vinh, Đường Nguyễn Du' },
-    { lat: 10.961558923991536, lng: 106.79343134792606, title: 'KHU DU LỊCH BỬU LONG', address: 'Khu Du Lịch Bửu Long, Khu phố 4, Phường Bửu Long' },
-    { lat: 10.957654822758942, lng: 106.84332668712804, title: 'VINCOM PLAZA BIÊN HÒA', address: 'Vincom Plaza, Đường Võ Thị Sáu' },
-    { lat: 10.959016487565998, lng: 106.82867543015341, title: 'QUẢNG TRƯỜNG TỈNH ĐỒNG NAI', address: 'Quảng Trường Biên Hòa, Đường Nguyễn Ái Quốc' },
-    { lat: 10.958680020503676, lng: 106.86266756621544, title: 'ĐẠI HỌC ĐỒNG NAI', address: 'Đại học Đồng Nai, Đường Nguyễn Ái Quốc' },
-    { lat: 10.952696694896726, lng: 106.86795949234015, title: 'BỆNH VIỆN ĐA KHOA ĐỒNG NAI', address: 'Bệnh viện Đồng Nai, Đường Phạm Văn Thuận' },
-    { lat: 10.905825258213738, lng: 106.85099169505033, title: 'SIÊU THỊ BIG C ĐỒNG NAI', address: 'Siêu Thị Big C, Đường Phạm Văn Thuận' },
-    { lat: 10.966998768286473, lng: 106.85547035972988, title: 'GO TÂN HIỆP', address: 'Go Tân Hiệp, Đường Phạm Văn Thuận' },
-    { lat: 10.959374255296915, lng: 106.835366062288955, title: 'CGV BIÊN HÒA', address: 'Rạp Chiếu Phim CGV, Đường Võ Thị Sáu' },
-    { lat: 10.949852392470289, lng: 106.8076742540497, title: 'CÔNG VIÊN NGUYỄN VĂN TRỊ', address: 'Công viên Nguyễn Văn Trị, Đường 30/4' },
-    { lat: 10.9552894939834, lng: 106.86379261882605, title: 'ĐÀI PHÁT THANH TRUYỀN HÌNH ĐỒNG NAI', address: 'Đài Phát Thanh Truyền Hình Đồng Nai, Đường Nguyễn Ái Quốc' },
-    { lat: 10.953921640955635, lng: 106.8484397008039, title: 'NHÀ THỜ GIÁO XỨ TÂN MAI', address: 'Nhà Thờ Giáo Xứ Tân Mai, Đường Nguyễn Ái Quốc' },
-    { lat: 10.947131558493773, lng: 106.82514965649538, title: 'BETA CINEMAS BIÊN HOÀ', address: 'Beta Cinemas Biên Hòa, Đ. Võ Thị Sáu' },
-    { lat: 10.963397591277472, lng: 106.84317366538123, title: 'CÔNG VIÊN DƯƠNG TỬ GIANG', address: 'Công Viên Dương Tử Giang, XR7V+965, Tân Tiến' },
-    { lat: 10.978570758820105, lng: 106.84828822376925, title: 'CÂY XĂNG 26', address: 'Cây Xăng 26, 50 Đ. Đồng Khởi, Trảng Dài' },
-    { lat: 10.938428012209371, lng: 106.869172525942, title: 'CÔNG VIÊN TAM HIỆP', address: 'Công Viên Tam Hiệp, 35 Đ. Bùi Văn Hòa, Long Bình' },
-    { lat: 10.957201851101503, lng: 106.81398542245282, title: 'MM MEGA MARKET BIÊN HOÀ', address: 'MM Mega Market Biên Hòa, 1806 Nguyễn Ái Quốc' }
+    { lat: 10.951901949734763, lng: 106.822795904921, avatar: "https://media.istockphoto.com/id/887353892/vi/vec-to/ng%C6%B0%E1%BB%9Di-%C4%91%C3%A0n-%C3%B4ng-m%E1%BA%B7t-c%C6%B0%E1%BB%9Di-phim-ho%E1%BA%A1t-h%C3%ACnh.jpg?s=1024x1024&w=is&k=20&c=S0msZoJF4vRq-N0gdoO3wPiBlWcR7bpN0EtIZXp0d9U=", title: 'CÔNG VIÊN BIÊN HÙNG', address: 'Công viên BIÊN HÙNG, Biên Hòa, Đường 30/4' },
+    { lat: 10.946278948617428, lng: 106.81889694326861, avatar: "https://png.pngtree.com/element_our/20190603/ourlarge/pngtree-happy-smiley-man-illustration-image_1432872.jpg", title: 'NHÀ THỜ BIÊN HÒA', address: 'Nhà thờ Biên Hòa, Đường Phạm Văn Thuận' },
+    { lat: 10.946294034896788, lng: 106.81439250909067, avatar: "https://png.pngtree.com/png-vector/20190115/ourlarge/pngtree-cartoon-avatar-smiley-face-lovely-png-image_338649.jpg", title: 'CHỢ BIÊN HÒA', address: 'Chợ Biên Hòa, Đường Nguyễn Văn Trị' },
+    { lat: 10.957913982918043, lng: 106.86333609428446, avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnhopVCxYjJ1rfYjSJpRFkSd78ei1PQcx2dg&s", title: 'TRƯỜNG THPT CHUYÊN LƯƠNG THẾ VINH', address: 'Trường THPT Chuyên Lương Thế Vinh, Đường Nguyễn Du' },
+    { lat: 10.961558923991536, lng: 106.79343134792606, avatar: "https://img.lovepik.com/png/20231013/Cute-little-round-face-cartoon-waiter-red-hand-painted_185971_wh860.png", title: 'KHU DU LỊCH BỬU LONG', address: 'Khu Du Lịch Bửu Long, Khu phố 4, Phường Bửu Long' },
+    { lat: 10.957654822758942, lng: 106.84332668712804, avatar: "https://img.lovepik.com/free-png/20211206/lovepik-cartoon-avatar-png-image_401349915_wh1200.png", title: 'VINCOM PLAZA BIÊN HÒA', address: 'Vincom Plaza, Đường Võ Thị Sáu' },
+    { lat: 10.959016487565998, lng: 106.82867543015341, avatar: "https://png.pngtree.com/png-vector/20230522/ourlarge/pngtree-cartoon-girl-face-illustration-vector-png-image_7087983.png", title: 'QUẢNG TRƯỜNG TỈNH ĐỒNG NAI', address: 'Quảng Trường Biên Hòa, Đường Nguyễn Ái Quốc' },
+    { lat: 10.958680020503676, lng: 106.86266756621544, avatar: "https://e1.pngegg.com/pngimages/114/506/png-clipart-visage-expression-faciale-joue-tete-arabe-dessin-anime-gens-ligne-sourire-doigt-content.png", title: 'ĐẠI HỌC ĐỒNG NAI', address: 'Đại học Đồng Nai, Đường Nguyễn Ái Quốc' },
+    { lat: 10.952696694896726, lng: 106.86795949234015, avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScmeefQLLVFKEZX_yyKSqXezHfgNbw1U07t23T7odmqPq_vXAkJgzx8YH02Tyt-oLdOQ4&usqp=CAU", title: 'BỆNH VIỆN ĐA KHOA ĐỒNG NAI', address: 'Bệnh viện Đồng Nai, Đường Phạm Văn Thuận' },
+    { lat: 10.905825258213738, lng: 106.85099169505033, avatar: "https://img.lovepik.com/png/20231112/arab-clipart-small-cartoon-warrior-with-a-scarf-on-his_569107_wh860.png", title: 'SIÊU THỊ BIG C ĐỒNG NAI', address: 'Siêu Thị Big C, Đường Phạm Văn Thuận' },
+    { lat: 10.966998768286473, lng: 106.85547035972988, avatar: "https://img.lovepik.com/png/20231112/arab-clipart-the-character-wears-a-robe-and-wearing-a_568931_wh860.png", title: 'GO TÂN HIỆP', address: 'Go Tân Hiệp, Đường Phạm Văn Thuận' },
+    { lat: 10.959374255296915, lng: 106.835366062288955, avatar: "https://img.lovepik.com/png/20231117/cartoon-thief-wearing-a-mask-and-carrying-a-pizza-vector_614040_wh860.png", title: 'CGV BIÊN HÒA', address: 'Rạp Chiếu Phim CGV, Đường Võ Thị Sáu' },
+    { lat: 10.949852392470289, lng: 106.8076742540497, avatar: "https://img.lovepik.com/png/20231117/cartoon-thief-wearing-a-mask-and-carrying-a-pizza-vector_614040_wh860.png", title: 'CÔNG VIÊN NGUYỄN VĂN TRỊ', address: 'Công viên Nguyễn Văn Trị, Đường 30/4' },
+    { lat: 10.9552894939834, lng: 106.86379261882605, avatar: "https://img.lovepik.com/png/20231120/the-icon-of-the-arabic-man-with-his-beard-vector_649616_wh860.png", title: 'ĐÀI PHÁT THANH TRUYỀN HÌNH ĐỒNG NAI', address: 'Đài Phát Thanh Truyền Hình Đồng Nai, Đường Nguyễn Ái Quốc' },
+    { lat: 10.953921640955635, lng: 106.8484397008039, avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMjpO1GRMwecA3nTm5gxHMsFfMwdyMdElY-9h-4Zj-GM7znHpx602sTaPY38KVEnlMDEY&usqp=CAU", title: 'NHÀ THỜ GIÁO XỨ TÂN MAI', address: 'Nhà Thờ Giáo Xứ Tân Mai, Đường Nguyễn Ái Quốc' },
+    { lat: 10.947131558493773, lng: 106.82514965649538, avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMjpO1GRMwecA3nTm5gxHMsFfMwdyMdElY-9h-4Zj-GM7znHpx602sTaPY38KVEnlMDEY&usqp=CAU", title: 'BETA CINEMAS BIÊN HOÀ', address: 'Beta Cinemas Biên Hòa, Đ. Võ Thị Sáu' },
+    { lat: 10.963397591277472, lng: 106.84317366538123, avatar: "https://png.pngtree.com/png-clipart/20230914/original/pngtree-ronald-reagan-vector-png-image_12157074.png", title: 'CÔNG VIÊN DƯƠNG TỬ GIANG', address: 'Công Viên Dương Tử Giang, XR7V+965, Tân Tiến' },
+    { lat: 10.978570758820105, lng: 106.84828822376925, avatar: "https://img.lovepik.com/free-png/20210926/lovepik-cartoon-avatar-png-image_401440426_wh1200.png", title: 'CÂY XĂNG 26', address: 'Cây Xăng 26, 50 Đ. Đồng Khởi, Trảng Dài' },
+    { lat: 10.938428012209371, lng: 106.869172525942, avatar: "https://media.istockphoto.com/id/844144810/vector/portrait-man-bearded-hair-style-mustache.jpg?s=612x612&w=is&k=20&c=I9wEARQCmDOlKK_5cEM_TzTDAFs72jDFsmU_QoCpUVo=", title: 'CÔNG VIÊN TAM HIỆP', address: 'Công Viên Tam Hiệp, 35 Đ. Bùi Văn Hòa, Long Bình' },
+    { lat: 10.957201851101503, lng: 106.81398542245282, avatar: "https://media.istockphoto.com/id/878942344/vector/man-face-cartoon.jpg?s=612x612&w=is&k=20&c=1PE6pKB4gxiXKIKbuMiRyJ7IqeHVJpbGTd7LeE4ZHcs=", title: 'MM MEGA MARKET BIÊN HOÀ', address: 'MM Mega Market Biên Hòa, 1806 Nguyễn Ái Quốc' }
   ];
 
 
@@ -48,11 +48,19 @@ async function initMap() {
       glyphColor: "white",
     });
 
+    const beachFlagImg = document.createElement('img');
+    beachFlagImg.src = `${location.avatar}`;
+    beachFlagImg.style.width = '50px';  // Thiết lập chiều rộng
+    beachFlagImg.style.height = '50px'; // Thiết lập chiều cao
+    beachFlagImg.style.objectFit = 'cover'; // Đảm bảo hình ảnh không bị méo
+
+
+
     const marker = new AdvancedMarkerElement({
       position: { lat: location.lat, lng: location.lng },
       map: map,
       title: location.title,
-      content: pinGlyph.element,
+      content: beachFlagImg
     });
 
     // Tùy chọn: Thêm cửa sổ thông tin cho mỗi marker

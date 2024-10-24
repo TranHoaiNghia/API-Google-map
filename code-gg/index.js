@@ -17,29 +17,37 @@ async function initMap() {
     mapId: "4504f8b37365c3d0",
   });
 
-  const locations = [
-    { lat: 10.951901949734763, lng: 106.822795904921, title: 'CÔNG VIÊN BIÊN HÙNG', address: 'Công viên BIÊN HÙNG, Biên Hòa, Đường 30/4' },
-    { lat: 10.946278948617428, lng: 106.81889694326861, title: 'NHÀ THỜ BIÊN HÒA', address: 'Nhà thờ Biên Hòa, Đường Phạm Văn Thuận' },
-    { lat: 10.946294034896788, lng: 106.81439250909067, title: 'CHỢ BIÊN HÒA', address: 'Chợ Biên Hòa, Đường Nguyễn Văn Trị' },
-    { lat: 10.957913982918043, lng: 106.86333609428446, title: 'TRƯỜNG THPT CHUYÊN LƯƠNG THẾ VINH', address: 'Trường THPT Chuyên Lương Thế Vinh, Đường Nguyễn Du' },
-    { lat: 10.961558923991536, lng: 106.79343134792606, title: 'KHU DU LỊCH BỬU LONG', address: 'Khu Du Lịch Bửu Long, Khu phố 4, Phường Bửu Long' },
-    { lat: 10.957654822758942, lng: 106.84332668712804, title: 'VINCOM PLAZA BIÊN HÒA', address: 'Vincom Plaza, Đường Võ Thị Sáu' },
-    { lat: 10.959016487565998, lng: 106.82867543015341, title: 'QUẢNG TRƯỜNG TỈNH ĐỒNG NAI', address: 'Quảng Trường Biên Hòa, Đường Nguyễn Ái Quốc' },
-    { lat: 10.958680020503676, lng: 106.86266756621544, title: 'ĐẠI HỌC ĐỒNG NAI', address: 'Đại học Đồng Nai, Đường Nguyễn Ái Quốc' },
-    { lat: 10.952696694896726, lng: 106.86795949234015, title: 'BỆNH VIỆN ĐA KHOA ĐỒNG NAI', address: 'Bệnh viện Đồng Nai, Đường Phạm Văn Thuận' },
-    { lat: 10.905825258213738, lng: 106.85099169505033, title: 'SIÊU THỊ BIG C ĐỒNG NAI', address: 'Siêu Thị Big C, Đường Phạm Văn Thuận' },
-    { lat: 10.966998768286473, lng: 106.85547035972988, title: 'GO TÂN HIỆP', address: 'Go Tân Hiệp, Đường Phạm Văn Thuận' },
-    { lat: 10.959374255296915, lng: 106.835366062288955, title: 'CGV BIÊN HÒA', address: 'Rạp Chiếu Phim CGV, Đường Võ Thị Sáu' },
-    { lat: 10.949852392470289, lng: 106.8076742540497, title: 'CÔNG VIÊN NGUYỄN VĂN TRỊ', address: 'Công viên Nguyễn Văn Trị, Đường 30/4' },
-    { lat: 10.9552894939834, lng: 106.86379261882605, title: 'ĐÀI PHÁT THANH TRUYỀN HÌNH ĐỒNG NAI', address: 'Đài Phát Thanh Truyền Hình Đồng Nai, Đường Nguyễn Ái Quốc' },
-    { lat: 10.953921640955635, lng: 106.8484397008039, title: 'NHÀ THỜ GIÁO XỨ TÂN MAI', address: 'Nhà Thờ Giáo Xứ Tân Mai, Đường Nguyễn Ái Quốc' },
-    { lat: 10.947131558493773, lng: 106.82514965649538, title: 'BETA CINEMAS BIÊN HOÀ', address: 'Beta Cinemas Biên Hòa, Đ. Võ Thị Sáu' },
-    { lat: 10.963397591277472, lng: 106.84317366538123, title: 'CÔNG VIÊN DƯƠNG TỬ GIANG', address: 'Công Viên Dương Tử Giang, XR7V+965, Tân Tiến' },
-    { lat: 10.978570758820105, lng: 106.84828822376925, title: 'CÂY XĂNG 26', address: 'Cây Xăng 26, 50 Đ. Đồng Khởi, Trảng Dài' },
-    { lat: 10.938428012209371, lng: 106.869172525942, title: 'CÔNG VIÊN TAM HIỆP', address: 'Công Viên Tam Hiệp, 35 Đ. Bùi Văn Hòa, Long Bình' },
-    { lat: 10.957201851101503, lng: 106.81398542245282, title: 'MM MEGA MARKET BIÊN HOÀ', address: 'MM Mega Market Biên Hòa, 1806 Nguyễn Ái Quốc' }
-  ];
+// Hàm kiểm tra độ tương phản giữa hai màu và trả về màu đậm (đen) hoặc sáng (trắng)
+function getContrastingColor(hexColor) {
+  const r = parseInt(hexColor.slice(1, 3), 16);
+  const g = parseInt(hexColor.slice(3, 5), 16);
+  const b = parseInt(hexColor.slice(5, 7), 16);
+  const brightness = (r * 299 + g * 587 + b * 114) / 1000; // Độ sáng theo chuẩn YIQ
+  return brightness > 150 ? "#000000" : "#FFFFFF"; // Đen nếu sáng, trắng nếu tối
+}
 
+const locations = [
+  { lat: 10.951901949734763, lng: 106.822795904921, icon: "fa-car", title: 'CÔNG VIÊN BIÊN HÙNG', address: 'Công viên BIÊN HÙNG, Biên Hòa, Đường 30/4', glyphColor: getContrastingColor("#FFCCCC"), backgroundColor: "#FFCCCC", borderColor: "#FF6666" },
+  { lat: 10.946278948617428, lng: 106.81889694326861, icon: "fa-hippo", title: 'NHÀ THỜ BIÊN HÒA', address: 'Nhà thờ Biên Hòa, Đường Phạm Văn Thuận', glyphColor: getContrastingColor("#CCFFCC"), backgroundColor: "#CCFFCC", borderColor: "#66FF66" },
+  { lat: 10.946294034896788, lng: 106.81439250909067, icon: "fa-truck-fast", title: 'CHỢ BIÊN HÒA', address: 'Chợ Biên Hòa, Đường Nguyễn Văn Trị', glyphColor: getContrastingColor("#CCCCFF"), backgroundColor: "#CCCCFF", borderColor: "#6666FF" },
+  { lat: 10.957913982918043, lng: 106.86333609428446, icon: "fa-gift", title: 'TRƯỜNG THPT CHUYÊN LƯƠNG THẾ VINH', address: 'Trường THPT Chuyên Lương Thế Vinh, Đường Nguyễn Du', glyphColor: getContrastingColor("#FFE5CC"), backgroundColor: "#FFE5CC", borderColor: "#FFB266" },
+  { lat: 10.961558923991536, lng: 106.79343134792606, icon: "fa-headphones", title: 'KHU DU LỊCH BỬU LONG', address: 'Khu Du Lịch Bửu Long, Khu phố 4, Phường Bửu Long', glyphColor: getContrastingColor("#E5CCFF"), backgroundColor: "#E5CCFF", borderColor: "#B266FF" },
+  { lat: 10.957654822758942, lng: 106.84332668712804, icon: "fa-bicycle", title: 'VINCOM PLAZA BIÊN HÒA', address: 'Vincom Plaza, Đường Võ Thị Sáu', glyphColor: getContrastingColor("#CCFFCC"), backgroundColor: "#CCFFCC", borderColor: "#66FF66" },
+  { lat: 10.959016487565998, lng: 106.82867543015341, icon: "fa-tree", title: 'QUẢNG TRƯỜNG TỈNH ĐỒNG NAI', address: 'Quảng Trường Biên Hòa, Đường Nguyễn Ái Quốc', glyphColor: getContrastingColor("#FFCCE5"), backgroundColor: "#FFCCE5", borderColor: "#FF99CC" },
+  { lat: 10.958680020503676, lng: 106.86266756621544, icon: "fa-handshake", title: 'ĐẠI HỌC ĐỒNG NAI', address: 'Đại học Đồng Nai, Đường Nguyễn Ái Quốc', glyphColor: getContrastingColor("#CCCCFF"), backgroundColor: "#CCCCFF", borderColor: "#6666FF" },
+  { lat: 10.952696694896726, lng: 106.86795949234015, icon: "fa-earth-americas", title: 'BỆNH VIỆN ĐA KHOA ĐỒNG NAI', address: 'Bệnh viện Đồng Nai, Đường Phạm Văn Thuận', glyphColor: getContrastingColor("#FFCCCC"), backgroundColor: "#FFCCCC", borderColor: "#FF6666" },
+  { lat: 10.905825258213738, lng: 106.85099169505033, icon: "fa-fish", title: 'SIÊU THỊ BIG C ĐỒNG NAI', address: 'Siêu Thị Big C, Đường Phạm Văn Thuận', glyphColor: getContrastingColor("#CCE5FF"), backgroundColor: "#CCE5FF", borderColor: "#99CCFF" },
+  { lat: 10.966998768286473, lng: 106.85547035972988, icon: "fa-landmark", title: 'GO TÂN HIỆP', address: 'Go Tân Hiệp, Đường Phạm Văn Thuận', glyphColor: getContrastingColor("#CCFFCC"), backgroundColor: "#CCFFCC", borderColor: "#66FF66" },
+  { lat: 10.959374255296915, lng: 106.835366062288955, icon: "fa-hand-holding-heart", title: 'CGV BIÊN HÒA', address: 'Rạp Chiếu Phim CGV, Đường Võ Thị Sáu', glyphColor: getContrastingColor("#FFF5CC"), backgroundColor: "#FFF5CC", borderColor: "#FFEB99" },
+  { lat: 10.949852392470289, lng: 106.8076742540497, icon: "fa-database", title: 'CÔNG VIÊN NGUYỄN VĂN TRỊ', address: 'Công viên Nguyễn Văn Trị, Đường 30/4', glyphColor: getContrastingColor("#FFE5CC"), backgroundColor: "#FFE5CC", borderColor: "#FFCC99" },
+  { lat: 10.9552894939834, lng: 106.86379261882605, icon: "fa-bug", title: 'ĐÀI PHÁT THANH TRUYỀN HÌNH ĐỒNG NAI', address: 'Đài Phát Thanh Truyền Hình Đồng Nai, Đường Nguyễn Ái Quốc', glyphColor: getContrastingColor("#FFE5CC"), backgroundColor: "#FFE5CC", borderColor: "#FFB266" },
+  { lat: 10.953921640955635, lng: 106.8484397008039, icon: "fa-palette", title: 'NHÀ THỜ GIÁO XỨ TÂN MAI', address: 'Nhà Thờ Giáo Xứ Tân Mai, Đường Nguyễn Ái Quốc', glyphColor: getContrastingColor("#E5CCFF"), backgroundColor: "#E5CCFF", borderColor: "#B266FF" },
+  { lat: 10.947131558493773, lng: 106.82514965649538, icon: "fa-cart-plus", title: 'BETA CINEMAS BIÊN HOÀ', address: 'Beta Cinemas Biên Hòa, Đ. Võ Thị Sáu', glyphColor: getContrastingColor("#FFE5CC"), backgroundColor: "#FFE5CC", borderColor: "#FFB266" },
+  { lat: 10.963397591277472, lng: 106.84317366538123, icon: "fa-rocket", title: 'CÔNG VIÊN DƯƠNG TỬ GIANG', address: 'Công Viên Dương Tử Giang, XR7V+965, Tân Tiến', glyphColor: getContrastingColor("#CCFFFF"), backgroundColor: "#CCFFFF", borderColor: "#66CCCC" },
+  { lat: 10.978570758820105, lng: 106.84828822376925, icon: "fa-brain", title: 'CÂY XĂNG 26', address: 'Cây Xăng 26, 50 Đ. Đồng Khởi, Trảng Dài', glyphColor: getContrastingColor("#FFCCCC"), backgroundColor: "#FFCCCC", borderColor: "#FF6666" },
+  { lat: 10.938428012209371, lng: 106.869172525942, icon: "fa-desktop", title: 'CÔNG VIÊN TAM HIỆP', address: 'Công Viên Tam Hiệp, 35 Đ. Bùi Văn Hòa, Long Bình', glyphColor: getContrastingColor("#E5E5E5"), backgroundColor: "#E5E5E5", borderColor: "#CCCCCC" },
+  { lat: 10.957201851101503, lng: 106.81398542245282, icon: "fa-crown", title: 'MM MEGA MARKET BIÊN HOÀ', address: 'MM Mega Market Biên Hòa, 1806 Nguyễn Ái Quốc', glyphColor: getContrastingColor("#FFF5CC"), backgroundColor: "#FFF5CC", borderColor: "#FFEB99" }
+];
 
   locations.forEach(location => {
 
@@ -48,11 +56,23 @@ async function initMap() {
       glyphColor: "white",
     });
 
+    const icon = document.createElement("div");
+
+    icon.innerHTML = `<i class="fa-solid ${location.icon}"></i>`;
+
+    const faPin = new PinElement({
+      glyph: icon,
+      glyphColor: `${location.glyphColor}`,
+      background: `${location.backgroundColor}`,
+      borderColor: `${location.borderColor}`,
+      scale: 1.3
+    });
+
     const marker = new AdvancedMarkerElement({
       position: { lat: location.lat, lng: location.lng },
       map: map,
       title: location.title,
-      content: pinGlyph.element,
+      content: faPin.element
     });
 
     // Tùy chọn: Thêm cửa sổ thông tin cho mỗi marker

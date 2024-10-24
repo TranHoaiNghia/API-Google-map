@@ -1,69 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Google Maps with Multiple Markers</title>
-  <style>
-    #map {
-      height: 500px; /* Đặt chiều cao của bản đồ */
-      width: 100%;   /* Đặt chiều rộng của bản đồ */
-    }
-  </style>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgBT6ty4Tq4PKwhWnxmV4iAfAY57y3lD8"></script>
-  <script>
-    let map;
-    const locations = [
-        { lat: 10.9447, lng: 106.8243, title: 'Công viên Biên Hòa' },
-        { lat: 10.9477, lng: 106.8283, title: 'Nhà thờ Biên Hòa' },
-        { lat: 10.9400, lng: 106.8270, title: 'Chợ Biên Hòa' },
-        { lat: 10.9430, lng: 106.8260, title: 'Trường THPT Biên Hòa' },
-        { lat: 10.9700, lng: 106.8360, title: 'Công viên Bửu Long' },
-        { lat: 10.9495, lng: 106.8322, title: 'Vincom Plaza Biên Hòa' },
-        { lat: 10.9470, lng: 106.8265, title: 'Quảng Trường Biên Hòa' },
-        { lat: 10.9482, lng: 106.8268, title: 'Đại học Đồng Nai' },
-        { lat: 10.9485, lng: 106.8295, title: 'Bệnh viện Đồng Nai' },
-        { lat: 10.9505, lng: 106.8301, title: 'Siêu Thị Big C Biên Hòa' },
-        { lat: 10.9456, lng: 106.8325, title: 'Rạp Chiếu Phim CGV Biên Hòa' },
-        { lat: 10.9460, lng: 106.8240, title: 'Công viên Nguyễn Văn Trị' },
-        { lat: 10.9443, lng: 106.8257, title: 'Đài Phát Thanh Đồng Nai' }
-    ];
+  <title>Test_Maps_API</title>
 
-    function initMap() {
-      // Tạo bản đồ với vị trí trung tâm
-      map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: 10.9572459, lng: 106.844582 }, // Vị trí trung tâm
-        zoom: 14
-      });
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-      // Lặp qua từng địa điểm trong mảng và thêm marker
-      locations.forEach(function(location) {
-        addMarker(location);
-      });
-    }
-
-    function addMarker(location) {
-      // Tạo marker mới cho mỗi địa điểm
-      const marker = new google.maps.Marker({
-        position: { lat: location.lat, lng: location.lng },
-        map: map,
-        title: location.title // Tiêu đề của marker
-      });
-
-      // Tùy chọn: Thêm cửa sổ thông tin cho mỗi marker
-      const infoWindow = new google.maps.InfoWindow({
-        content: `<h3>${location.title}</h3><p>Tọa độ: ${location.lat}, ${location.lng}</p>`
-      });
-
-      // Mở cửa sổ thông tin khi click vào marker
-      marker.addListener('click', function() {
-        infoWindow.open(map, marker);
-      });
-    }
-  </script>
+  <link rel="stylesheet" type="text/css" href="./code-gg/style.css" />
+  <script type="module" src="./code-gg/index.js"></script>
+  <link rel="icon" href="./code-gg/marker.png" />
 </head>
-<body onload="initMap()">
-  <h1>Test Google Maps API</h1>
+
+<body>
+  <h3>Test Google Maps JavaScript API</h3>
+  <!--The div element for the map -->
   <div id="map"></div>
+
+  <!-- prettier-ignore -->
+  <script>(g => { var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window; b = b[c] || (b[c] = {}); var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams, u = () => h || (h = new Promise(async (f, n) => { await (a = m.createElement("script")); e.set("libraries", [...r] + ""); for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]); e.set("callback", c + ".maps." + q); a.src = `https://maps.${c}apis.com/maps/api/js?` + e; d[q] = f; a.onerror = () => h = n(Error(p + " could not load.")); a.nonce = m.querySelector("script[nonce]")?.nonce || ""; m.head.append(a) })); d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)) })
+      ({ key: "AIzaSyBgBT6ty4Tq4PKwhWnxmV4iAfAY57y3lD8", v: "weekly" });</script>
 </body>
+
 </html>
+
+<!-- https://developers.google.com/maps
+https://developers.google.com/maps/documentation/javascript
+https://developers.google.com/maps/documentation/javascript/adding-a-google-map#maps_add_map-javascript
+https://developers.google.com/maps/documentation/javascript/advanced-markers/basic-customization#maps_advanced_markers_basic_style-javascript
+
+simple marker
+https://developers.google.com/maps/documentation/javascript/examples/marker-simple#maps_marker_simple-javascript -->

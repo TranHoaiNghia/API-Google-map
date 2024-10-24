@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Maps with Multiple Markers</title>
+  <style>
+    #map {
+      height: 500px; /* Đặt chiều cao của bản đồ */
+      width: 100%;   /* Đặt chiều rộng của bản đồ */
+    }
+  </style>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgBT6ty4Tq4PKwhWnxmV4iAfAY57y3lD8"></script>
+  <script>
+    let map;
+    const locations = [
+        { lat: 10.9447, lng: 106.8243, title: 'Công viên Biên Hòa' },
+        { lat: 10.9477, lng: 106.8283, title: 'Nhà thờ Biên Hòa' },
+        { lat: 10.9400, lng: 106.8270, title: 'Chợ Biên Hòa' },
+        { lat: 10.9430, lng: 106.8260, title: 'Trường THPT Biên Hòa' },
+        { lat: 10.9700, lng: 106.8360, title: 'Công viên Bửu Long' },
+        { lat: 10.9495, lng: 106.8322, title: 'Vincom Plaza Biên Hòa' },
+        { lat: 10.9470, lng: 106.8265, title: 'Quảng Trường Biên Hòa' },
+        { lat: 10.9482, lng: 106.8268, title: 'Đại học Đồng Nai' },
+        { lat: 10.9485, lng: 106.8295, title: 'Bệnh viện Đồng Nai' },
+        { lat: 10.9505, lng: 106.8301, title: 'Siêu Thị Big C Biên Hòa' },
+        { lat: 10.9456, lng: 106.8325, title: 'Rạp Chiếu Phim CGV Biên Hòa' },
+        { lat: 10.9460, lng: 106.8240, title: 'Công viên Nguyễn Văn Trị' },
+        { lat: 10.9443, lng: 106.8257, title: 'Đài Phát Thanh Đồng Nai' }
+    ];
+
+    function initMap() {
+      // Tạo bản đồ với vị trí trung tâm
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 10.9572459, lng: 106.844582 }, // Vị trí trung tâm
+        zoom: 14
+      });
+
+      // Lặp qua từng địa điểm trong mảng và thêm marker
+      locations.forEach(function(location) {
+        addMarker(location);
+      });
+    }
+
+    function addMarker(location) {
+      // Tạo marker mới cho mỗi địa điểm
+      const marker = new google.maps.Marker({
+        position: { lat: location.lat, lng: location.lng },
+        map: map,
+        title: location.title // Tiêu đề của marker
+      });
+
+      // Tùy chọn: Thêm cửa sổ thông tin cho mỗi marker
+      const infoWindow = new google.maps.InfoWindow({
+        content: `<h3>${location.title}</h3><p>Tọa độ: ${location.lat}, ${location.lng}</p>`
+      });
+
+      // Mở cửa sổ thông tin khi click vào marker
+      marker.addListener('click', function() {
+        infoWindow.open(map, marker);
+      });
+    }
+  </script>
+</head>
+<body onload="initMap()">
+  <h1>Test Google Maps API</h1>
+  <div id="map"></div>
+</body>
+</html>
